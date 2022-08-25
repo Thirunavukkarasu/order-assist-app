@@ -1,4 +1,4 @@
-# Order Assist 
+# Order Assist App
 
 Order Assist is backend office web based platform for creating, packing, fulfiling and delivering orders.
 
