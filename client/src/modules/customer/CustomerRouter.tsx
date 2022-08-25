@@ -1,7 +1,12 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import CustomerList from "./CustomerList";
 
 function CustomerRouter() {
-  return <h1>Customers</h1>;
+  return (
+    <Routes>
+      <Route index element={<CustomerList />} />
+    </Routes>
+  );
 }
 
 export default CustomerRouter;

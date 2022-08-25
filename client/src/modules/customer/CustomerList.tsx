@@ -4,7 +4,7 @@ import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
 
-function SalesOrderList() {
+function CustomerList() {
   const columns = [
     {
       header: "Date",
@@ -52,7 +52,7 @@ function SalesOrderList() {
 
   return (
     <div style={{ marginTop: 40 }}>
-      <h4>Sales Orders</h4>
+      <h4>Customers</h4>
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/salesorder/list"
@@ -61,4 +61,4 @@ function SalesOrderList() {
   );
 }
 
-export default SalesOrderList;
+export default CustomerList;
