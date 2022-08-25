@@ -1,0 +1,51 @@
+const { SalesOrder } = require("../../../models");
+
+const listData = async (req, res) => {
+  const { page, limit, sort } = req.query;
+  // Or with extra options
+  const options = {
+    //attributes: [],
+    page: page || 1,
+    paginate: limit || 10,
+    order: [[sort || "created_at", "DESC"]],
+    where: {},
+  };
+  try {
+    const { docs, pages, total } = await SalesOrder.paginate(options);
+
+    return res.json({
+      message: "Listing Sales Order Data",
+      docs,
+      pages,
+      total,
+      page,
+      limit,
+      sort,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Listing fetch failed!",
+      error,
+    });
+  }
+};
+
+const createSalesOrder = async (req, res) => {
+  const { customerId, status, amount, salesEmail, createdBy, updatedBy } =
+    req.body;
+
+  try {
+    return res.json({
+      message: "Sales Order Created!",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Sales Order Creation Failed!",
+    });
+  }
+};
+
+module.exports = {
+  listData,
+  createSalesOrder,
+};
