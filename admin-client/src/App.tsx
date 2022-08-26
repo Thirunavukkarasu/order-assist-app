@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
 import Header from "./layout/Header";
-import Footer from "./layout/Footer";
 import Sidebar from "./layout/Sidebar";
 
 import CustomerRouter from "./modules/customer/CustomerRouter";

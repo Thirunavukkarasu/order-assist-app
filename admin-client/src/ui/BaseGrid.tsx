@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, FC } from "react";
 import { Table, Pagination } from "react-bootstrap";
 import {
   PaginationState,
@@ -10,12 +10,12 @@ import {
 } from "@tanstack/react-table";
 import axios from "axios";
 
-type Props = {
+type BaseGridProps = {
   columns: any;
   gridUrl: string;
 };
 
-function BaseGrid({ columns, gridUrl }: Props) {
+const BaseGrid: FC<BaseGridProps> = ({ columns, gridUrl }) => {
   const [gridData, setGridData] = useState([]);
   const [pageCount, setPageCount] = useState(-1);
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
@@ -56,17 +56,17 @@ function BaseGrid({ columns, gridUrl }: Props) {
   });
 
   useEffect(() => {
-    fetchGridData();
-  }, [pageIndex, pageSize]);
+    async function fetchGridData() {
+      const response = await axios({
+        url: `${gridUrl}?limit=${pageSize}&page=${pageIndex + 1}`,
+        method: "get",
+      });
+      setGridData(response?.data?.docs);
+      setPageCount(response?.data?.pages);
+    }
 
-  async function fetchGridData() {
-    const response = await axios({
-      url: `${gridUrl}?limit=${pageSize}&page=${pageIndex + 1}`,
-      method: "get",
-    });
-    setGridData(response?.data?.docs);
-    setPageCount(response?.data?.pages);
-  }
+    fetchGridData();
+  }, [pageIndex, pageSize, gridUrl]);
 
   return (
     <>
@@ -143,6 +143,6 @@ function BaseGrid({ columns, gridUrl }: Props) {
       </div>
     </>
   );
-}
+};
 
 export default BaseGrid;
