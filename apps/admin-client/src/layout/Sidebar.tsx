@@ -1,49 +1,47 @@
-import { NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
     <nav
-      id="sidebarMenu"
-      className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+      className=""
     >
-      <div className="position-sticky pt-3 sidebar-sticky">
-        <ul className="nav flex-column">
-          <NavItem>
-            <Link className="nav-link" aria-current="page" to="dashboard">
-              <i className="bi bi-speedometer2"></i> Dashboard
+      <div className="">
+        <ul className="">
+          <li>
+            <Link className="" aria-current="page" to="dashboard">
+              <i className=""></i> Dashboard
             </Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link" to="orders">
-              <i className="bi bi-cart"></i>
+          </li>
+          <li>
+            <Link className="" to="orders">
+              <i className=""></i>
               Orders
             </Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link" to="products">
-              <i className="bi bi-upc-scan"></i>
+          </li>
+          <li>
+            <Link className="" to="products">
+              <i className=""></i>
               Products
             </Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link" to="customers">
-              <i className="bi bi-people"></i>
+          </li>
+          <li>
+            <Link className="" to="customers">
+              <i className=""></i>
               Customers
             </Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link" to="reports">
-              <i className="bi bi-file-bar-graph"></i>
+          </li>
+          <li>
+            <Link className="" to="reports">
+              <i className=""></i>
               Reports
             </Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link" to="settings">
-              <i className="bi bi-gear"></i>
+          </li>
+          <li>
+            <Link className="" to="settings">
+              <i className=""></i>
               Settings
             </Link>
-          </NavItem>
+          </li>
         </ul>
       </div>
     </nav>

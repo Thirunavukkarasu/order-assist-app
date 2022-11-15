@@ -4,7 +4,7 @@ import moment from "moment";
 import BaseGrid from "ui/BaseGrid";
 import PageTitle from "ui/PageTitle";
 
-function ShipmentList() {
+function ProductList() {
   const columns = [
     {
       header: "Date",
@@ -59,7 +59,7 @@ function ShipmentList() {
 
   return (
     <div style={{ marginTop: 40 }}>
-      <PageTitle title="Shipments" />
+      <PageTitle title="Products" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/shipment/list"
@@ -68,4 +68,4 @@ function ShipmentList() {
   );
 }
 
-export default ShipmentList;
+export default ProductList;

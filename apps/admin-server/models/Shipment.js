@@ -1,53 +1,44 @@
-const sequelizePaginate = require("sequelize-paginate");
+const mongoose = require("mongoose");
+const paginate = require('mongoose-paginate');
 
-module.exports = (sequelize, DataTypes) => {
-  const Shipment = sequelize.define(
-    "Shipment",
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      customerId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      soId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      packageId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      amount: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      createdBy: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      updatedBy: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-    },
-    {
-      freezeTableName: true,
-      timestamps: true,
-      underscored: true,
-      tableName: "shipments",
-      schema: "public",
-    }
-  );
+const schema = new mongoose.Schema({
+  shipmentId: {
+    type: String,
+    required: true,
+  },
+  customerId: {
+    type: String,
+    required: true,
+  },
+  soId: {
+    type: String,
+    required: true,
+  },
+  packageId: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+  },
+  amount: {
+    type: Number,
+    required: true,
+  },
+  createdBy: {
+    type: String,
+    required: true,
+  },
+  updatedBy: {
+    type: String,
+    required: true,
+  },
+}, {
+  collection: 'shipments',
+  timestamps: true
+});
 
-  sequelizePaginate.paginate(Shipment);
+schema.plugin(paginate);
 
-  return Shipment;
-};
+module.exports = mongoose.model('Shipment', schema);

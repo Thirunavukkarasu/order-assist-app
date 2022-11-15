@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Badge } from "react-bootstrap";
 import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
@@ -32,7 +31,7 @@ function CustomerList() {
       dataIndex: "status",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <Badge bg="success">{row.getValue()}</Badge>,
+      formatter: (row: any) => <div className="bg-red">{row.getValue()}</div>,
     },
     {
       header: "Amount",

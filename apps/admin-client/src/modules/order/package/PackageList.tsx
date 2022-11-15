@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Badge } from "react-bootstrap";
 import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
+import PageTitle from "ui/PageTitle";
 
 function PackageList() {
   const columns = [
@@ -39,7 +39,7 @@ function PackageList() {
       dataIndex: "status",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <Badge bg="success">{row.getValue()}</Badge>,
+      formatter: (row: any) => <div>{row.getValue()}</div>,
     },
     {
       header: "Amount",
@@ -58,8 +58,8 @@ function PackageList() {
   ];
 
   return (
-    <div style={{ marginTop: 40 }}>
-      <h4>Packages</h4>
+    <div>
+      <PageTitle title="Packages" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/package/list"

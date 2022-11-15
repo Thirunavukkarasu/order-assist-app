@@ -12,24 +12,18 @@ import SettingsRouter from "./modules/settings/SettingsRouter";
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <Header />
-      <div className="container-fluid" style={{ height: "90vh" }}>
-        <div className="row">
-          <Sidebar />
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Routes>
-              <Route path="dashboard" element={<DashboardRouter />} />
-              <Route path="customers" element={<CustomerRouter />} />
-              <Route path="orders/*" element={<OrderRouter />} />
-              <Route path="products" element={<ProductRouter />} />
-              <Route path="reports" element={<ReportRouter />} />
-              <Route path="settings" element={<SettingsRouter />} />
-            </Routes>
-          </main>
-        </div>
-      </div>
-      {/*<Footer />*/}
+      <main className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <Routes>
+          <Route path="dashboard" element={<DashboardRouter />} />
+          <Route path="customers" element={<CustomerRouter />} />
+          <Route path="orders/*" element={<OrderRouter />} />
+          <Route path="products" element={<ProductRouter />} />
+          <Route path="reports" element={<ReportRouter />} />
+          <Route path="settings" element={<SettingsRouter />} />
+        </Routes>
+      </main>
     </div>
   );
 }
