@@ -6,7 +6,7 @@ export default function DashboardLandingPage() {
   return (
     <div>
       <PageTitle title={"Dashboard"} />
-      <div className='flex flex-row flex-wrap space-y-10'>
+      <div className='grid grid-cols-2 space-y-10'>
         <SimpleBarChart />
         <SimpleAreaChart />
         <SimpleAreaChart />
