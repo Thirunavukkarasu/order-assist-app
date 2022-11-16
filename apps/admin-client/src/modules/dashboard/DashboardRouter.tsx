@@ -1,7 +1,13 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import DashboardLandingPage from "./DashboardLandingPage";
 
 function DashboardRouter() {
-  return <h1>Dashboard</h1>;
+  return (
+    <Routes>
+      <Route index element={<DashboardLandingPage />} />
+    </Routes>
+  )
 }
 
 export default DashboardRouter;

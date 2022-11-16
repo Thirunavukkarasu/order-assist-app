@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
 import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
+import PageTitle from "ui/PageTitle";
+import Badge from "ui/Badge";
+import HyperLink from "ui/HyperLink";
 
 function CustomerList() {
   const columns = [
@@ -18,7 +20,7 @@ function CustomerList() {
       dataIndex: "id",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <Link to={"/"}>{row.getValue()}</Link>,
+      formatter: (row: any) => <HyperLink to={"/"}>{row.getValue()}</HyperLink>,
     },
     {
       header: "Customer Id",
@@ -31,7 +33,7 @@ function CustomerList() {
       dataIndex: "status",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <div className="bg-red">{row.getValue()}</div>,
+      formatter: (row: any) => <Badge>{row.getValue()}</Badge>,
     },
     {
       header: "Amount",
@@ -50,8 +52,8 @@ function CustomerList() {
   ];
 
   return (
-    <div style={{ marginTop: 40 }}>
-      <h4>Customers</h4>
+    <div>
+      <PageTitle title="Customers" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/salesorder/list"

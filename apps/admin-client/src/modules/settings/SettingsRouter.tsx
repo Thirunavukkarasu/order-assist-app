@@ -1,7 +1,12 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import SettingsLandingPage from "./SettingsLandingPage";
 
 function SettingsRouter() {
-  return <h1>Settings</h1>;
+  return (
+    <Routes>
+      <Route index element={<SettingsLandingPage />} />
+    </Routes>
+  )
 }
 
 export default SettingsRouter;

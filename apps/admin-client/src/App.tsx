@@ -12,9 +12,9 @@ import SettingsRouter from "./modules/settings/SettingsRouter";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <main className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+    <div className="flex h-screen bg-gray-50">
+      <Sidebar />
+      <main className="py-6 px-6">
         <Routes>
           <Route path="dashboard" element={<DashboardRouter />} />
           <Route path="customers" element={<CustomerRouter />} />
