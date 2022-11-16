@@ -1,7 +1,13 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import ReportLandingPage from "./ReportLandingPage";
 
 function ReportRouter() {
-  return <h1>Reports</h1>;
+  return (
+    <Routes>
+      <Route index element={<ReportLandingPage />} />
+    </Routes>
+  )
 }
 
 export default ReportRouter;

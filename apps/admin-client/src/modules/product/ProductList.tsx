@@ -3,8 +3,9 @@ import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
 import PageTitle from "ui/PageTitle";
+import Badge from "ui/Badge";
 
-function ShipmentList() {
+function ProductList() {
   const columns = [
     {
       header: "Date",
@@ -15,31 +16,18 @@ function ShipmentList() {
         moment(row.getValue()).format("DD-MMM-YYYY hh:mm:ss A"),
     },
     {
-      header: "Shipment Id",
+      header: "SKU Id",
       dataIndex: "id",
       searchable: true,
       sortable: true,
       formatter: (row: any) => <Link to={"/"}>{row.getValue()}</Link>,
     },
     {
-      header: "So Id",
-      dataIndex: "soId",
-      searchable: true,
-      sortable: true,
-      formatter: (row: any) => <Link to={"/"}>{row.getValue()}</Link>,
-    },
-    {
-      header: "Customer Id",
-      dataIndex: "customerId",
-      searchable: true,
-      sortable: true,
-    },
-    {
       header: "Status",
       dataIndex: "status",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <div className="bg-red">{row.getValue()}</div>,
+      formatter: (row: any) => <Badge>{row.getValue()}</Badge>,
     },
     {
       header: "Amount",
@@ -58,14 +46,14 @@ function ShipmentList() {
   ];
 
   return (
-    <div style={{ marginTop: 40 }}>
-      <PageTitle title="Shipments" />
+    <div>
+      <PageTitle title="Products" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/shipment/list"
       />
-    </div>
+    </div >
   );
 }
 
-export default ShipmentList;
+export default ProductList;

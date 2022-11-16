@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Badge } from "react-bootstrap";
 import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
+import PageTitle from "ui/PageTitle";
 
 function SalesOrderList() {
   const columns = [
@@ -19,7 +19,7 @@ function SalesOrderList() {
       dataIndex: "id",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <Link to={"/"}>{row.getValue()}</Link>,
+      formatter: (row: any) => <div className="bg-red">{row.getValue()}</div>,
     },
     {
       header: "Customer Id",
@@ -32,7 +32,7 @@ function SalesOrderList() {
       dataIndex: "status",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => <Badge bg="success">{row.getValue()}</Badge>,
+      formatter: (row: any) => <div>{row.getValue()}</div>,
     },
     {
       header: "Amount",
@@ -52,7 +52,7 @@ function SalesOrderList() {
 
   return (
     <div style={{ marginTop: 40 }}>
-      <h4>Sales Orders</h4>
+      <PageTitle title="Sales Orders" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/salesorder/list"

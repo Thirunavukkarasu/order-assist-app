@@ -4,14 +4,15 @@ const listData = async (req, res) => {
   const { page, limit, sort } = req.query;
   // Or with extra options
   const options = {
-    //attributes: [],
-    page: page || 1,
-    paginate: limit || 10,
-    order: [[sort || "created_at", "DESC"]],
-    where: {},
+    //select: 'title date author',
+    sort: { date: -1 },
+    lean: true,
+    offset: page * limit,
+    limit: limit || 10,
+    sort: [[sort || "created_at", "DESC"]],
   };
   try {
-    const { docs, pages, total } = await Shipment.paginate(options);
+    const { docs, pages, total } = await Shipment.paginate({}, options);
 
     return res.json({
       message: "Listing Grid Data",

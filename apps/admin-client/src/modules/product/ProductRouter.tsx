@@ -1,7 +1,13 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import ProductList from "./ProductList";
 
 function ProductRouter() {
-  return <h1>Products</h1>;
+  return (
+    <Routes>
+      <Route index element={<ProductList />} />
+    </Routes>
+  );
 }
 
 export default ProductRouter;

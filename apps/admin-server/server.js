@@ -1,11 +1,12 @@
 require("dotenv").config();
 
 const expressApp = require("./config/express");
-const models = require("./models");
+const mongoose = require('mongoose');
 
-const { PORT } = process.env;
+const { PORT, MONGO_DB_URI } = process.env;
 
 const startServer = async () => {
+  await mongoose.connect(MONGO_DB_URI);
   const app = expressApp();
 
   app.listen(PORT, () => {
