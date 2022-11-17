@@ -18,7 +18,6 @@ function ReportLandingPage() {
   }];
   return (
     <div>
-      <PageTitle title="Manage Reports" />
       <CardLayout cards={cards} />
     </div>
   );

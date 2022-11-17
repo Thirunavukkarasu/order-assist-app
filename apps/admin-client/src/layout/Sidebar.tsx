@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Link } from "react-router-dom";
 import {
   FaChartLine, FaBarcode, FaShoppingCart,
@@ -34,10 +33,10 @@ function Sidebar() {
 
   return (
     <aside
-      className="w-58 px-10 border-r bg-white border-r-gray-300"
+      className="w-62 px-10 border-r bg-sky-700 text-white border-r-gray-300"
     >
-      <div className="flex flex-col">
-        <img src="logo.png" className="w-40 h-32" alt="Logo" />
+      <div className="flex flex-col space-y-10">
+        <img src="oa-logo-3.png" className="w-40 h-10 mt-10" alt="Logo" />
         <ul className="flex flex-col space-y-10">
           {menuItems.map((menuItem, idx) => (
             <li key={idx} className="group">

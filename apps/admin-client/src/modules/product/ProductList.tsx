@@ -47,7 +47,6 @@ function ProductList() {
 
   return (
     <div>
-      <PageTitle title="Products" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/shipment/list"

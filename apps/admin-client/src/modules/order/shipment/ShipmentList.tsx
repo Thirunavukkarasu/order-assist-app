@@ -58,8 +58,7 @@ function ShipmentList() {
   ];
 
   return (
-    <div style={{ marginTop: 40 }}>
-      <PageTitle title="Shipments" />
+    <div>
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/shipment/list"

@@ -7,7 +7,12 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronLeftIcon, ChevronRightIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/20/solid'
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+} from "react-icons/fa";
 import axios from "axios";
 
 type BaseGridProps = {
@@ -21,8 +26,7 @@ const Pagination = ({ table }: any) => {
       <span className="flex items-center p-2">
         <div className="px-1">Page</div>
         <strong className="px-1">
-          {table.getState().pagination.pageIndex + 1} of{" "}
-          {table.getPageCount()}
+          {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
         </strong>
         <div>Records</div>
       </span>
@@ -32,28 +36,28 @@ const Pagination = ({ table }: any) => {
           onClick={() => table.setPageIndex(0)}
         >
           <span className="sr-only">First</span>
-          <ChevronDoubleLeftIcon className="h-5 w-5" aria-hidden="true" />
+          <FaAngleDoubleLeft className="h-5 w-5" aria-hidden="true" />
         </div>
         <div
           className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
           onClick={() => table.previousPage()}
         >
           <span className="sr-only">Previous</span>
-          <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+          <FaChevronLeft className="h-5 w-5" aria-hidden="true" />
         </div>
         <div
           className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
           onClick={() => table.nextPage()}
         >
           <span className="sr-only">Next</span>
-          <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+          <FaChevronRight className="h-5 w-5" aria-hidden="true" />
         </div>
         <div
           className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
         >
           <span className="sr-only">Last</span>
-          <ChevronDoubleRightIcon className="h-5 w-5" aria-hidden="true" />
+          <FaAngleDoubleRight className="h-5 w-5" aria-hidden="true" />
         </div>
       </div>
       <select
@@ -70,23 +74,23 @@ const Pagination = ({ table }: any) => {
         ))}
       </select>
     </div>
-  )
-}
+  );
+};
 
 const Table = ({ table }: any) => {
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-800 dark:text-gray-400">
         {table.getHeaderGroups().map((headerGroup: any) => (
-          <tr key={headerGroup.id} >
+          <tr key={headerGroup.id}>
             {headerGroup.headers.map((header: any) => (
               <th key={header.id} scope="col" className="py-3 px-6">
                 {header.isPlaceholder
                   ? null
                   : flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
               </th>
             ))}
           </tr>
@@ -103,8 +107,9 @@ const Table = ({ table }: any) => {
           </tr>
         ))}
       </tbody>
-    </table>)
-}
+    </table>
+  );
+};
 
 const BaseGrid: FC<BaseGridProps> = ({ columns, gridUrl }) => {
   const [gridData, setGridData] = useState([]);
@@ -152,7 +157,11 @@ const BaseGrid: FC<BaseGridProps> = ({ columns, gridUrl }) => {
         url: `${gridUrl}?limit=${pageSize}&page=${pageIndex + 1}`,
         method: "get",
       });
-      const pages = response?.data?.total && Math.ceil(Number(response?.data?.total) / Number(response?.data?.limit));
+      const pages =
+        response?.data?.total &&
+        Math.ceil(
+          Number(response?.data?.total) / Number(response?.data?.limit)
+        );
       setGridData(response?.data?.docs);
       setPageCount(pages);
     }
@@ -161,7 +170,7 @@ const BaseGrid: FC<BaseGridProps> = ({ columns, gridUrl }) => {
   }, [pageIndex, pageSize, gridUrl]);
 
   return (
-    <div className="overflow-x-auto relative" >
+    <div className="overflow-x-auto relative">
       <Table table={table} />
       <Pagination table={table} />
     </div>

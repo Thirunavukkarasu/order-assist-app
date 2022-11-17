@@ -59,7 +59,6 @@ function PackageList() {
 
   return (
     <div>
-      <PageTitle title="Packages" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/package/list"

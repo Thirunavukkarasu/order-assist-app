@@ -51,8 +51,7 @@ function SalesOrderList() {
   ];
 
   return (
-    <div style={{ marginTop: 40 }}>
-      <PageTitle title="Sales Orders" />
+    <div>
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/salesorder/list"

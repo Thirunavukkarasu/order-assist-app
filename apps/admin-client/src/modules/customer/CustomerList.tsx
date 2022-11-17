@@ -53,7 +53,6 @@ function CustomerList() {
 
   return (
     <div>
-      <PageTitle title="Customers" />
       <BaseGrid
         columns={columns}
         gridUrl="http://localhost:4000/order/salesorder/list"

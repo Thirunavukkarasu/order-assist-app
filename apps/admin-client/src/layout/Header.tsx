@@ -1,31 +1,30 @@
-/* eslint-disable @next/next/no-img-element */
-import { Fragment } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom';
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const user = {
-  name: 'Thiru',
-  email: 'thiru@oa.com',
+  name: "Thiru",
+  email: "thiru@oa.com",
   imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+};
 const navigation = [
-  { name: 'Dashboard', to: '/dashboard', current: true },
-  { name: 'Orders', to: '/orders', current: false },
-  { name: 'Products', to: '/products', current: false },
-  { name: 'Customers', to: '/customers', current: false },
-  { name: 'Reports', to: '/reports', current: false },
+  { name: "Dashboard", to: "/dashboard", current: true },
+  { name: "Orders", to: "/orders", current: false },
+  { name: "Products", to: "/products", current: false },
+  { name: "Customers", to: "/customers", current: false },
+  { name: "Reports", to: "/reports", current: false },
 ];
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: "Your Profile", href: "#" },
+  { name: "Settings", href: "#" },
+  { name: "Sign out", href: "#" },
 ];
 
 function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 function NavLeft() {
@@ -46,18 +45,19 @@ function NavLeft() {
               to={item.to}
               className={classNames(
                 item.current
-                  ? 'bg-gray-900 text-white'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'px-3 py-2 rounded-md text-sm font-medium'
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                "px-3 py-2 rounded-md text-sm font-medium"
               )}
-              aria-current={item.current ? 'page' : undefined}
+              aria-current={item.current ? "page" : undefined}
             >
               {item.name}
             </Link>
           ))}
         </div>
       </div>
-    </div>)
+    </div>
+  );
 }
 
 function NavRight() {
@@ -69,7 +69,7 @@ function NavRight() {
           className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
         >
           <span className="sr-only">View notifications</span>
-          <BellIcon className="h-6 w-6" aria-hidden="true" />
+          <FaUser />
         </button>
 
         {/* Profile dropdown */}
@@ -77,7 +77,11 @@ function NavRight() {
           <div>
             <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
               <span className="sr-only">Open user menu</span>
-              <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+              <img
+                className="h-8 w-8 rounded-full"
+                src={user.imageUrl}
+                alt=""
+              />
             </Menu.Button>
           </div>
           <Transition
@@ -96,8 +100,8 @@ function NavRight() {
                     <a
                       href={item.href}
                       className={classNames(
-                        active ? 'bg-gray-100' : '',
-                        'block px-4 py-2 text-sm text-gray-700'
+                        active ? "bg-gray-100" : "",
+                        "block px-4 py-2 text-sm text-gray-700"
                       )}
                     >
                       {item.name}
@@ -109,7 +113,8 @@ function NavRight() {
           </Transition>
         </Menu>
       </div>
-    </div>)
+    </div>
+  );
 }
 
 function MobileMenu({ open }: any) {
@@ -118,14 +123,10 @@ function MobileMenu({ open }: any) {
       {/* Mobile menu button */}
       <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
         <span className="sr-only">Open main menu</span>
-        {open ? (
-          <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-        ) : (
-          <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-        )}
+        {open ? <FaUser /> : <FaUser />}
       </Disclosure.Button>
     </div>
-  )
+  );
 }
 
 function Header() {

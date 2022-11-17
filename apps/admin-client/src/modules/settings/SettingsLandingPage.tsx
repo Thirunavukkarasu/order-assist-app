@@ -18,7 +18,6 @@ function SettingsLandingPage() {
   }];
   return (
     <div>
-      <PageTitle title="Manage Settings" />
       <CardLayout cards={cards} />
     </div>
   );
