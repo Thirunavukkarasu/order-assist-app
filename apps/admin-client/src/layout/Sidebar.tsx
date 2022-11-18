@@ -33,20 +33,20 @@ function Sidebar() {
 
   return (
     <aside
-      className="w-62 px-10 border-r bg-sky-700 text-white border-r-gray-300"
+      className="w-62 px-10 border-r bg-white border-r-gray-300"
     >
       <div className="flex flex-col space-y-10">
-        <img src="oa-logo-3.png" className="w-40 h-10 mt-10" alt="Logo" />
+        <img src="oa-logo-5.png" className="w-40 h-8 mt-10" alt="Logo" />
         <ul className="flex flex-col space-y-10">
           {menuItems.map((menuItem, idx) => (
             <li key={idx} className="group">
               <Link
                 aria-current="page"
                 to={menuItem.href}
-                className="flex space-x-2 items-center group-hover:text-sky-500"
+                className="flex space-x-2 items-center group-hover:text-indigo-500"
               >
                 <span
-                  className="w-2 h-8 bg-sky-500 absolute left-0 rounded scale-y-0 group-hover:scale-y-100 transition-transform ease-in-out duration-300"
+                  className="w-2 h-8 bg-indigo-500 absolute left-0 rounded scale-y-0 group-hover:scale-y-100 transition-transform ease-in-out duration-300"
                 >
                 </span>
                 {menuItem.icon}

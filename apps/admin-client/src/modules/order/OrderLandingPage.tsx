@@ -19,7 +19,6 @@ function OrderLandingPage() {
 
   return (
     <div>
-      <PageTitle title="Manage Orders" />
       <CardLayout cards={cards} />
     </div>
   );

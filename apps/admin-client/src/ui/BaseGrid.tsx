@@ -22,7 +22,7 @@ type BaseGridProps = {
 
 const Pagination = ({ table }: any) => {
   return (
-    <div className="flex items-center pt-4">
+    <div className="flex items-center pt-4 bg-white">
       <span className="flex items-center p-2">
         <div className="px-1">Page</div>
         <strong className="px-1">

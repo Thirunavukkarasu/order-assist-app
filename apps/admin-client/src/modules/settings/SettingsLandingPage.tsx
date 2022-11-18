@@ -14,7 +14,7 @@ function SettingsLandingPage() {
   }, {
     title: 'Integrations',
     icon: <FaLink size={32} />,
-    href: 'job-instances'
+    href: 'integrations'
   }];
   return (
     <div>
