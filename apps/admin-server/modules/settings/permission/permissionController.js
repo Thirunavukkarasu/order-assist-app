@@ -1,4 +1,4 @@
-const { Role } = require("../../../models");
+const { Permission } = require("../../../models");
 
 const listData = async (req, res) => {
   const { page, limit, sort } = req.query;
@@ -12,7 +12,7 @@ const listData = async (req, res) => {
     sort: [[sort || "created_at", "DESC"]],
   };
   try {
-    const { docs, pages, total } = await Role.paginate({}, options);
+    const { docs, pages, total } = await Permission.paginate({}, options);
 
     return res.json({
       message: "Listing Grid Data",

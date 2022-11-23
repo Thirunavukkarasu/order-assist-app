@@ -2,22 +2,41 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function UnAuthLayout(){
     const { loginWithRedirect } = useAuth0();
+    const links = [{
+      title: 'Home',
+      href: '/home'
+    },{
+      title: 'Products',
+      href: '/products'
+    },{
+      title: 'Features',
+      href: '/features'
+    },{
+      title: 'Contact Us',
+      href: '/contact-us'
+    }]
 
     return (
-        <div className="bg-gray-50 flex items-center justify-center">
-          <div className="h-96 bg-gray-700 w-1/2 text-white px-10 py-10 space-y-5 rounded-lg">
-            <div className="space-y-4">
-            <h1 className="text-3xl">Explore Order Assist App</h1>
-            <p className="">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur nulla nostrum corporis ex reiciendis natus. Doloribus natus numquam incidunt, animi rerum recusandae. Exercitationem ipsam, enim odio totam consequatur mollitia cupiditate.
-            Iste, animi similique. Veniam rerum officia quidem earum cumque soluta quibusdam, corporis, id voluptatibus voluptatum expedita eius explicabo quas tempora beatae veritatis dolore tenetur animi. Ratione ad expedita eligendi suscipit.
-            Provident rem minima hic omnis ducimus architecto nihil reprehenderit magnam repellendus, aliquid earum molestias incidunt quibusdam ut excepturi, veritatis nisi impedit! Iure iusto recusandae id voluptatem harum repellat earum rerum.
-            </p>
+        <div className="w-full h-20 bg-gray-200 flex flex-row justify-between items-center px-10">
+            <div>
+              <img src="oa-logo-5.png" alt="logo" className="w-36 h-8"/>
             </div>
-            <div onClick={() => loginWithRedirect()} className="bg-indigo-400 px-10 py-5 w-32 rounded-lg hover:bg-indigo-700 text-md">
-              Login
+            <div className="flex flex-row space-x-4 items-center">
+              <ul className="flex flex-row space-x-4">
+              {links.map((link, idx) => (
+                  <li key={idx}>
+                    <a 
+                      href={link.href} 
+                      className="hover:text-indigo-500 relative group"
+                    >
+                      <span>{link.title}</span>
+                      <div className="w-16 h-1 group-hover:bg-indigo-500 absolute top-6"></div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            <button className="bg-indigo-500 px-4 py-2 text-white rounded-lg" onClick={() => loginWithRedirect()}>Login</button>
             </div>
-          </div>
         </div>
       )
 }

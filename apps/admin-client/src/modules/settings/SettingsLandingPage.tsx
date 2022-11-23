@@ -1,21 +1,22 @@
-import { FaCartPlus, FaShoppingBag, FaLuggageCart, FaUsers, FaGraduationCap, FaLink, FaUserAlt, FaUserFriends, FaUserLock } from "react-icons/fa";
-import PageTitle from "ui/PageTitle";
+import { FaUsers, FaUserLock, FaUniversalAccess } from "react-icons/fa";
+
 import CardLayout from "ui/CardLayout";
 
 function SettingsLandingPage() {
   const cards = [{
-    title: 'Application Users',
+    title: 'Users',
     icon: <FaUsers size={32} />,
-    href: 'application-users'
+    href: 'users'
   }, {
-    title: 'Application Roles',
+    title: 'Roles',
     icon: <FaUserLock size={32} />,
-    href: 'application-roles'
+    href: 'roles'
   }, {
-    title: 'Integrations',
-    icon: <FaLink size={32} />,
-    href: 'integrations'
+    title: 'Permissions',
+    icon: <FaUniversalAccess size={32} />,
+    href: 'permissions'
   }];
+  
   return (
     <div>
       <CardLayout cards={cards} />

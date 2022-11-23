@@ -22,7 +22,7 @@ export default function AuthLayout(){
               <Route path="orders/*" element={<OrderRouter />} />
               <Route path="products" element={<ProductRouter />} />
               <Route path="reports" element={<ReportRouter />} />
-              <Route path="settings" element={<SettingsRouter />} />
+              <Route path="settings/*" element={<SettingsRouter />} />
             </Routes>
           </div>
         </main>
