@@ -59,10 +59,7 @@ function ShipmentList() {
 
   return (
     <div>
-      <BaseGrid
-        columns={columns}
-        gridUrl="http://localhost:4000/order/shipment/list"
-      />
+      <BaseGrid columns={columns} gridUrl="/api/order/shipment/list" />
     </div>
   );
 }

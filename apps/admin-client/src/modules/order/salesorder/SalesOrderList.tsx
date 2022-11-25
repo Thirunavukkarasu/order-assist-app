@@ -52,10 +52,7 @@ function SalesOrderList() {
 
   return (
     <div>
-      <BaseGrid
-        columns={columns}
-        gridUrl="http://localhost:4000/order/salesorder/list"
-      />
+      <BaseGrid columns={columns} gridUrl="/api/order/salesorder/list" />
     </div>
   );
 }

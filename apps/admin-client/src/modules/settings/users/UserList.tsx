@@ -23,11 +23,11 @@ function UserList() {
         debugger;
         return (
           <Link to={"/"}>
-            <img src={row.avatar} alt={"Avatar"}/>
+            <img src={row.avatar} alt={"Avatar"} />
             <span>{row.getValue()}</span>
           </Link>
-        )
-      }
+        );
+      },
     },
     {
       header: "Phone",
@@ -48,7 +48,8 @@ function UserList() {
       dataIndex: "lastLoginAt",
       searchable: true,
       sortable: true,
-      formatter: (row: any) => moment(row.getValue()).format("DD-MMM-YYYY hh:mm:ss A"),
+      formatter: (row: any) =>
+        moment(row.getValue()).format("DD-MMM-YYYY hh:mm:ss A"),
     },
     {
       header: "Updated At",
@@ -62,10 +63,7 @@ function UserList() {
 
   return (
     <div>
-      <BaseGrid
-        columns={columns}
-        gridUrl="http://localhost:4000/settings/user/list"
-      />
+      <BaseGrid columns={columns} gridUrl="/api/settings/user/list" />
     </div>
   );
 }

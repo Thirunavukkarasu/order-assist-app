@@ -13,7 +13,7 @@ module.exports = () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
 
-  app.use("/", routes());
+  app.use("/api", routes());
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {

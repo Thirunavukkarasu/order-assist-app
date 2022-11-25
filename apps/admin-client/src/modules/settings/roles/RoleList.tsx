@@ -58,10 +58,7 @@ function RoleList() {
 
   return (
     <div>
-      <BaseGrid
-        columns={columns}
-        gridUrl="http://localhost:4000/settings/role/list"
-      />
+      <BaseGrid columns={columns} gridUrl="/api/settings/role/list" />
     </div>
   );
 }

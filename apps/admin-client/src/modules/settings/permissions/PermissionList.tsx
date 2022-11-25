@@ -58,10 +58,7 @@ function PermissionList() {
 
   return (
     <div>
-      <BaseGrid
-        columns={columns}
-        gridUrl="http://localhost:4000/settings/permission/list"
-      />
+      <BaseGrid columns={columns} gridUrl="/api/settings/permission/list" />
     </div>
   );
 }
