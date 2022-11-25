@@ -7,16 +7,12 @@ on:
     paths: "apps/admin-server/**"
 
 env:
-  AWS_REGION: ap-south-1 # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: prod-oa-image # set this to your Amazon ECR repository name
-  ECS_SERVICE: prod-oa-service # set this to your Amazon ECS service name
-  ECS_CLUSTER: production-apps # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION:
-    prod-oa-td # set this to the path to your Amazon ECS task definition
-    # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME:
-    prod-oa-container # set this to the name of the container in the
-    # containerDefinitions section of your task definition
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY: prod-oa-image
+  ECS_SERVICE: prod-oa-service
+  ECS_CLUSTER: production-apps
+  ECS_TASK_DEFINITION: prod-oa-td
+  CONTAINER_NAME: prod-oa-container
 
 permissions:
   contents: read
