@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
-import PageTitle from "ui/PageTitle";
 
 function SalesOrderList() {
   const columns = [
@@ -16,7 +14,7 @@ function SalesOrderList() {
     },
     {
       header: "Order Id",
-      dataIndex: "id",
+      dataIndex: "soId",
       searchable: true,
       sortable: true,
       formatter: (row: any) => <div className="bg-red">{row.getValue()}</div>,

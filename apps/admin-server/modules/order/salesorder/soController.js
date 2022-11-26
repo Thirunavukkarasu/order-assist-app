@@ -1,7 +1,7 @@
 const { SalesOrder } = require("../../../models");
 
 const listData = async (req, res) => {
-  const { page, limit, sort } = req.query;
+  const { page, limit, sort } = req.body;
   // Or with extra options
   const options = {
     //select: 'title date author',
@@ -9,7 +9,7 @@ const listData = async (req, res) => {
     lean: true,
     offset: page * limit,
     limit: limit || 10,
-    sort: [[sort || "created_at", "DESC"]],
+    sort: sort ||[["created_at", "DESC"]],
   };
   try {
     const { docs, pages, total } = await SalesOrder.paginate({}, options);

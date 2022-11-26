@@ -1,7 +1,7 @@
 const { Role } = require("../../../models");
 
 const listData = async (req, res) => {
-  const { page, limit, sort } = req.query;
+  const { page, limit, sort } = req.body;
   // Or with extra options
   const options = {
     //select: 'title date author',

@@ -5,7 +5,7 @@ const controller = require("./leadController");
 module.exports = () => {
   const router = express.Router();
 
-  router.get("/list", controller.listData);
+  router.post("/list", controller.listData);
 
   return router;
 };
