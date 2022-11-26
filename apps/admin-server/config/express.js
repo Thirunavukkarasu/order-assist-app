@@ -2,18 +2,21 @@ const createError = require("http-errors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const helmet = require("helmet");
 
 const routes = require("../routes");
+const checkJwt = require("../middlewares/jwtMiddleware");
 
 module.exports = () => {
   const app = express();
 
+  app.use(helmet());
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
 
-  app.use("/api", routes());
+  app.use("/api", checkJwt, routes());
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {

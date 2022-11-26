@@ -12,6 +12,7 @@ const listData = async (req, res) => {
     sort: sort ||[["created_at", "DESC"]],
   };
   try {
+    console.log(req.auth, req.user);
     const { docs, pages, total } = await SalesOrder.paginate({}, options);
 
     return res.json({

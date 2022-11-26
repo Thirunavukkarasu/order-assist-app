@@ -3,6 +3,7 @@ import moment from "moment";
 
 import BaseGrid from "ui/BaseGrid";
 import Badge from "ui/Badge";
+import { get } from "lodash";
 
 function UserList() {
   const columns = [
@@ -20,11 +21,17 @@ function UserList() {
       searchable: true,
       sortable: true,
       formatter: (row: any) => {
-        debugger;
+        const avatar = get(row, "row.original.avatar", "");
         return (
           <Link to={"/"}>
-            <img src={row.avatar} alt={"Avatar"} />
-            <span>{row.getValue()}</span>
+            <div className="flex flex-row items-center justify-start space-x-2">
+              <img
+                src={avatar}
+                alt={"Avatar"}
+                className="w-8 h-8 rounded-full"
+              />
+              <span>{row.getValue()}</span>
+            </div>
           </Link>
         );
       },
