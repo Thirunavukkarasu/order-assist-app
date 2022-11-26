@@ -9,7 +9,7 @@ export default function TableHead({ table }: any) {
             <th
               key={header.id}
               scope="col"
-              className="py-3 px-6"
+              className="py-2 px-3"
               colSpan={header.colSpan}
             >
               {header.isPlaceholder ? null : (

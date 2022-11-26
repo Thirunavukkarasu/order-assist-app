@@ -18,6 +18,20 @@ module.exports = () => {
 
   app.use("/api", checkJwt, routes());
 
+  app.get('/healthcheck', async (_req, res, _next) => {
+    const healthcheck = {
+        uptime: process.uptime(),
+        message: 'OK',
+        timestamp: Date.now()
+    };
+    try {
+        return res.send(healthcheck);
+    } catch (error) {
+        healthcheck.message = error;
+        return res.status(503).send("Server is having issues!");
+    }
+  });
+
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
     next(createError(404));
