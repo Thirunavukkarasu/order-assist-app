@@ -9,10 +9,9 @@ const listData = async (req, res) => {
     lean: true,
     offset: page * limit,
     limit: limit || 10,
-    sort: sort ||[["created_at", "DESC"]],
+    sort: sort || [["created_at", "DESC"]],
   };
   try {
-    console.log(req.auth, req.user);
     const { docs, pages, total } = await SalesOrder.paginate({}, options);
 
     return res.json({

@@ -31,6 +31,13 @@ const listData = async (req, res) => {
   }
 };
 
+const getUserDetails = (req, res) => {
+  return res.json({
+    message: "User Details Fetched Successfully!",
+  });
+};
+
 module.exports = {
   listData,
+  getUserDetails,
 };

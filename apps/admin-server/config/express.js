@@ -6,6 +6,7 @@ const helmet = require("helmet");
 
 const routes = require("../routes");
 const checkJwt = require("../middlewares/jwtMiddleware");
+const userMiddleware = require("../middlewares/authMiddleware");
 
 module.exports = () => {
   const app = express();
@@ -16,19 +17,19 @@ module.exports = () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
 
-  app.use("/api", checkJwt, routes());
+  app.use("/api", checkJwt, userMiddleware, routes());
 
-  app.get('/healthcheck', async (_req, res, _next) => {
+  app.get("/healthcheck", async (_req, res, _next) => {
     const healthcheck = {
-        uptime: process.uptime(),
-        message: 'OK',
-        timestamp: Date.now()
+      uptime: process.uptime(),
+      message: "OK",
+      timestamp: Date.now(),
     };
     try {
-        return res.send(healthcheck);
+      return res.send(healthcheck);
     } catch (error) {
-        healthcheck.message = error;
-        return res.status(503).send("Server is having issues!");
+      healthcheck.message = error;
+      return res.status(503).send("Server is having issues!");
     }
   });
 
